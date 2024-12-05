@@ -22,7 +22,8 @@ class UserSeeder extends Seeder
                 'photo' => 'img/user/admin1.jpeg',
                 'gender' => 'male',
                 'DOB' => '2002-10-16',
-                'cities_id' => 1
+                'cities_id' => 1,
+                'address' => 'Jl. Kebayoran Lama No.52'
             ],
             [
                 'name' => 'user1',
@@ -32,7 +33,8 @@ class UserSeeder extends Seeder
                 'photo' => 'img/user/user1.jpeg',
                 'gender' => 'male',
                 'DOB' => '2003-11-08',
-                'cities_id' => 1
+                'cities_id' => 1,
+                'address' => 'Jl. Utama Raya No.9'
             ]
         ];
 
