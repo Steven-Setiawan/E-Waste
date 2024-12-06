@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\User;
+use App\Models\EWaste;
+use App\Models\CollectionCenter;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -47,6 +50,33 @@ class UserController extends Controller
 
         return redirect()->route('Login.index')->with('success', 'Create New Account Success!');
 
+    }
+
+    public function loginUser(Request $request)
+    {
+        $validated = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        if (Auth::attempt($validated)) {
+            return redirect()->route('user.home');
+        } else {
+            return back()->withErrors(['email' => 'The provided credentials do not match our records.']);
+        }
+    }
+
+    public function userHome()
+    {
+        // $Ewastes = EWaste::all();
+        // $CollectionCenters = CollectionCenter::all();
+
+        // $datas = [
+        //     'ewastes' => $ewastes,
+        //     'collectioncenters' => $collectioncenters
+        // ];
+
+        return view('userHomePage');
     }
 
 }
